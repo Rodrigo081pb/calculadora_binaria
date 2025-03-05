@@ -1,0 +1,147 @@
+/* Reseta margens, paddings e define box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* HTML e BODY ocupam toda a tela e utilizam a fonte padrão "Arial, sans-serif" */
+  html, body {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    text-shadow: 1px 1px 2px #000;
+  }
+  
+  /* Corpo com imagem de fundo que preenche toda a tela */
+  body {
+    background: url("../img/baixados\ \(1\).gif") no-repeat center center fixed;
+    background-size: cover;
+  }
+  
+  /* Div para acessibilidade do fundo (oculta visualmente) */
+  .descricao-fundo {
+    display: none;
+  }
+  
+  /* Container principal com layout flex para exibir as seções lado a lado */
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo semitransparente */
+    padding: 20px;
+  }
+  
+  /* Estilo das seções: calculadora e tutorial */
+  .calculadora,
+  .tutorial {
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+    margin: 20px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo interno semitransparente */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Título com a fonte "Rubik Wet Paint" e estilo de pixação */
+  .titulo {
+    font-family: 'Rubik Wet Paint', cursive;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 3px #000;
+  }
+  
+  /* Estilo dos labels dos inputs */
+  .calculadora label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+  }
+  
+  /* Estilo dos inputs para números */
+  .calculadora input[type="number"],
+  .calculadora input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #aaa;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-shadow: none;
+    color: #333;
+  }
+  
+  /* Estilo dos botões da calculadora */
+  .calculadora button {
+    background-color: #23338d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 5px 0;
+    width: 100%;
+    text-shadow: 1px 1px 2px #000;
+  }
+  
+  /* Hover dos botões */
+  .calculadora button:hover {
+    background-color: #1617699d;
+  }
+  
+  /* Área de resultado das conversões */
+  .resultado {
+    margin-top: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    min-height: 50px;
+  }
+  
+  /* Título do tutorial */
+  .tutorial h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 3px #000;
+  }
+  
+  /* Lista do tutorial */
+  .tutorial ol {
+    list-style: decimal;
+    margin-left: 20px;
+    font-size: 1.1rem;
+  }
+  
+  /* Estilo do rodapé com direitos autorais */
+  footer {
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  footer h6 {
+    font-size: 0.9rem;
+  }
+  
+  /* Responsividade: em telas menores, empilha as seções */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+    }
+    .calculadora, .tutorial {
+      max-width: 90%;
+    }
+  }
+  

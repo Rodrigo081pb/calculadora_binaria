@@ -2,166 +2,33 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="description" content="Calculadora de números binários - Exemplo prático" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calculadora Binária</title>
+  <title>Calc Bin</title>
 
-  <style>
-    /* 
-      Aqui definimos o estilo global. 
-      Usamos a imagem de fundo (a mesma que você mostrou, pixel art do campo e lago) 
-      configurada para cobrir toda a tela, sem repetição.
-    */
-    body, html {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      font-family: Arial, sans-serif;
-      /* Define cor de texto padrão */
-      color: #333;
-    }
+  <!-- Importa a fonte "Rubik Wet Paint" para o título -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" 
+    rel="stylesheet"
+  />
 
-    /* 
-      Configura a imagem de fundo em tela cheia.
-      background-size: cover faz com que a imagem ocupe todo o espaço sem distorcer,
-      mas pode recortar partes se o ratio não for exato.
-      no-repeat evita a repetição,
-      center center alinha no centro.
-    */
-    body {
-      background: url('SEU_FUNDO.gif') no-repeat center center fixed;
-      background-size: cover;
-      /* Caso queira um efeito de fixo para rolagem */
-      background-attachment: fixed;
-    }
-
-    /* 
-      Div "descricao-fundo" para acessibilidade: 
-      Usamos role="img" e aria-label para fornecer uma descrição do que está ao fundo 
-      para leitores de tela. Deixamos display:none para não poluir visualmente.
-    */
-    .descricao-fundo {
-      display: none;
-    }
-
-    /*
-      Container principal que centraliza o conteúdo da calculadora na tela.
-      Utilizamos flexbox para facilitar o centramento vertical e horizontal.
-    */
-    .container {
-      display: flex;
-      justify-content: center; 
-      align-items: center; 
-      width: 100%;
-      height: 100%;
-      /* 
-        Espaço interno para dar um respiro no conteúdo. 
-        A cor de fundo com 70% de transparência (rgba(255, 255, 255, 0.7)) 
-        permitindo visualizar o fundo.
-      */
-      background-color: rgba(255, 255, 255, 0.7);
-    }
-
-    /* 
-      A calculadora em si. 
-      Damos uma largura máxima para ficar responsivo.
-    */
-    .calculadora {
-      width: 90%;
-      max-width: 400px;
-      padding: 20px;
-      border-radius: 10px;
-      /* Você pode colocar uma sombra sutil para dar destaque. */
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      /* Cor principal do texto e botões */
-      color: #333;
-      /* Fonte maior para acessibilidade */
-      font-size: 1.1rem;
-    }
-
-    /* 
-      Estilo do título principal. 
-      Use uma cor que lembre corais de oceano (por exemplo, #FF7F50).
-    */
-    .calculadora h1 {
-      text-align: center;
-      color: #FF7F50; /* Coral */
-      margin-bottom: 20px;
-    }
-
-    /* 
-      Inputs e botões com estilos amigáveis. 
-      Use cores que combinem com coral, mas que tenham bom contraste.
-    */
-    .calculadora input[type="text"], 
-    .calculadora input[type="number"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 2px solid #ccc;
-      border-radius: 5px;
-      font-size: 1rem;
-    }
-
-    .calculadora button {
-      background-color: #FF7F50; /* Coral */
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      padding: 10px;
-      cursor: pointer;
-      font-size: 1rem;
-      margin: 5px 0;
-      width: 100%;
-    }
-
-    .calculadora button:hover {
-      background-color: #ff9066; /* Um tom mais claro para hover */
-    }
-
-    /*
-      Div para mostrar mensagens ou resultados.
-      Poderíamos estilizar para chamar atenção.
-    */
-    .resultado {
-      margin-top: 15px;
-      background-color: #fff;
-      padding: 10px;
-      border-radius: 5px;
-      border: 2px solid #ccc;
-      min-height: 50px;
-    }
-
-    /* 
-      Sessão "tutorial" para explicar passo a passo ao usuário 
-      como usar a calculadora.
-    */
-    .tutorial {
-      margin-top: 20px;
-      background-color: #e0f7fa; /* Azul clarinho para destacar */
-      padding: 10px;
-      border-radius: 5px;
-      font-size: 0.95rem;
-    }
-  </style>
+  <!-- Link para o CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
-  <!-- 
-    Div "descricao-fundo" para fornecer descrição do fundo a leitores de tela.
-    "role=img" diz que este elemento é uma imagem para tecnologias assistivas,
-    e "aria-label" descreve a imagem.
-  -->
-  <div class="descricao-fundo" role="img" aria-label="Paisagem em pixel art com um lago, gramado e céu com nuvens.">
-    <!-- Conteúdo invisível. Somente para acessibilidade. -->
-  </div>
+  <!-- Div para acessibilidade: descreve a imagem de fundo para leitores de tela -->
+  <div class="descricao-fundo" role="img" aria-label="Paisagem em pixel art com um lago, gramado e céu com nuvens."></div>
 
+  <!-- Container principal que agrupa a calculadora e o tutorial -->
   <div class="container">
+    
+    <!-- Seção da Calculadora -->
     <div class="calculadora">
-      <!-- Título principal -->
-      <h1>Calculadora Binária</h1>
+      <!-- Título com a fonte especial -->
+      <h1 class="titulo">Calculadora Binária</h1>
 
-      <!-- Campo para inserir um número decimal que será convertido para binário -->
+      <!-- Campo para inserir número decimal -->
       <label for="entradaDecimal">Digite um número decimal:</label>
       <input 
         type="number" 
@@ -171,12 +38,10 @@
         aria-label="Campo para inserir número decimal"
       />
 
-      <!-- Botão para converter decimal -> binário -->
-      <button id="botaoConverterParaBinario">
-        Converter para Binário
-      </button>
+      <!-- Botão para converter decimal em binário -->
+      <button id="botaoConverterParaBinario">Converter para Binário</button>
 
-      <!-- Campo para inserir um número binário que será convertido para decimal -->
+      <!-- Campo para inserir número binário -->
       <label for="entradaBinaria">Digite um número binário:</label>
       <input 
         type="text" 
@@ -186,34 +51,33 @@
         aria-label="Campo para inserir número binário"
       />
 
-      <!-- Botão para converter binário -> decimal -->
-      <button id="botaoConverterParaDecimal">
-        Converter para Decimal
-      </button>
+      <!-- Botão para converter binário em decimal -->
+      <button id="botaoConverterParaDecimal">Converter para Decimal</button>
 
-      <!-- Botão para gerar um número binário aleatório (exemplo) -->
-      <button id="botaoGerarBinario">
-        Gerar Número Binário Aleatório
-      </button>
+      <!-- Botão para gerar número binário aleatório -->
+      <button id="botaoGerarBinario">Gerar Número Binário Aleatório</button>
 
-      <!-- Área onde exibiremos o resultado das conversões ou mensagens -->
-      <div class="resultado" id="resultadoConversao" aria-live="polite">
-        <!-- Texto dinâmico inserido via JavaScript -->
-      </div>
+      <!-- Área para exibir os resultados das conversões -->
+      <div class="resultado" id="resultadoConversao" aria-live="polite"></div>
+    </div>
 
-      <!-- Sessão tutorial (passo a passo) -->
-      <div class="tutorial" aria-label="Tutorial de uso">
-        <h2>Como Usar</h2>
-        <ol>
-          <li>Para converter de decimal para binário: digite um valor no campo <strong>“Digite um número decimal”</strong> e clique em <strong>“Converter para Binário”</strong>.</li>
-          <li>Para converter de binário para decimal: digite um valor no campo <strong>“Digite um número binário”</strong> e clique em <strong>“Converter para Decimal”</strong>.</li>
-          <li>Se quiser ver um exemplo, clique em <strong>“Gerar Número Binário Aleatório”</strong> para gerar um número binário e, em seguida, clique em <strong>“Converter para Decimal”</strong> para ver o resultado.</li>
-          <li>O resultado das conversões aparecerá na caixa de resultado acima.</li>
-        </ol>
-      </div>
+    <!-- Seção do Tutorial (passo a passo) -->
+    <div class="tutorial" aria-label="Tutorial de uso">
+      <h2>Como Usar</h2>
+      <ol>
+        <li>Para converter de decimal para binário: digite um valor no campo <strong>"Digite um número decimal"</strong> e clique em <strong>"Converter para Binário"</strong>.</li>
+        <li>Para converter de binário para decimal: digite um valor no campo <strong>"Digite um número binário"</strong> e clique em <strong>"Converter para Decimal"</strong>.</li>
+        <li>Se quiser ver um exemplo, clique em <strong>"Gerar Número Binário Aleatório"</strong> para gerar um número binário e, em seguida, clique em <strong>"Converter para Decimal"</strong>.</li>
+        <li>O resultado das conversões aparecerá na caixa de resultado acima.</li>
+      </ol>
     </div>
   </div>
 
+  <!-- Rodapé com direitos autorais -->
+  <footer>
+    <h6>&copy; Todos os direitos autorais reservados por Kauã Rodrigo</h6>
+  </footer>
 
+  <script src="./assets/js/script.js"></script>
 </body>
 </html>
