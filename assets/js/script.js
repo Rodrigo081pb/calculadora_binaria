@@ -1,14 +1,4 @@
 
-/*
-  Explicação geral do script:
-  ---------------------------
-  Aqui, estamos fazendo a lógica de conversão em JavaScript para demonstrar 
-  como a página pode funcionar de forma estática, sem depender de back-end. 
-  Entretanto, você pode adaptar para chamar suas funções em Python via requisições 
-  se estiver usando Flask/Django/etc.
-
-  As variáveis e funções foram nomeadas em português para facilitar a compreensão.
-*/
 
 // Seleciona os elementos do DOM
 const entradaDecimal = document.getElementById('entradaDecimal');
@@ -19,13 +9,11 @@ const botaoGerarBinario = document.getElementById('botaoGerarBinario');
 const resultadoConversao = document.getElementById('resultadoConversao');
 
 /*
-  Função: converterDecimalParaBinarioJS
-  -------------------------------------
   Converte um número decimal (inteiro) para uma string binária.
   Retorna a string binária correspondente.
 */
 function converterDecimalParaBinarioJS(numeroDecimal) {
-  // Se for zero, retornamos '0'
+  // Se for zero, retorna '0'
   if (numeroDecimal === 0) {
     return '0';
   }
@@ -45,8 +33,6 @@ function converterDecimalParaBinarioJS(numeroDecimal) {
 }
 
 /*
-  Função: converterBinarioParaDecimalJS
-  --------------------------------------
   Converte uma string binária para um número decimal (inteiro).
   Retorna o valor decimal correspondente.
 */
@@ -65,8 +51,8 @@ function converterBinarioParaDecimalJS(numeroBinario) {
 }
 
 /*
-  Evento: Clique no botão "Converter para Binário"
-  ------------------------------------------------
+  Clique no botão "Converter para Binário"
+
   Pega o valor do campo 'entradaDecimal', converte para inteiro
   e chama a função de conversão. Exibe o resultado no 'resultadoConversao'.
 */
@@ -85,7 +71,7 @@ botaoConverterParaBinario.addEventListener('click', () => {
 });
 
 /*
-  Evento: Clique no botão "Converter para Decimal"
+  Clique no botão "Converter para Decimal"
   ------------------------------------------------
   Pega o valor do campo 'entradaBinaria' como string,
   e chama a função de conversão. Exibe o resultado.
@@ -93,7 +79,7 @@ botaoConverterParaBinario.addEventListener('click', () => {
 botaoConverterParaDecimal.addEventListener('click', () => {
   const valorBinario = entradaBinaria.value;
 
-  // Validação simples: checa se contém apenas '0' e '1'
+  // checa se contém apenas '0' e '1'
   if (!/^[01]+$/.test(valorBinario)) {
     resultadoConversao.textContent = 'Por favor, digite um número binário válido (somente 0 ou 1).';
     return;
@@ -104,7 +90,7 @@ botaoConverterParaDecimal.addEventListener('click', () => {
 });
 
 /*
-  Evento: Clique no botão "Gerar Número Binário Aleatório"
+  Clique no botão "Gerar Número Binário Aleatório"
   --------------------------------------------------------
   Gera um número binário aleatório (de tamanho fixo ou variável),
   exibe no campo 'entradaBinaria' e limpa o resultado anterior.
