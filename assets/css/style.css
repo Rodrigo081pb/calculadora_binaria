@@ -122,18 +122,6 @@
     margin-left: 20px;
     font-size: 1.1rem;
   }
-  
-  /* Estilo do rodapé com direitos autorais */
-  footer {
-    text-align: center;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.7);
-  }
-  
-  footer h6 {
-    font-size: 0.9rem;
-  }
-  
   /* Responsividade: em telas menores, empilha as seções */
   @media (max-width: 768px) {
     .container {
